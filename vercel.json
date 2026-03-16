@@ -1,5 +1,6 @@
 {
   "rewrites": [
+    { "source": "/Sunrise-glow.html", "destination": "/api/sunrise" },
     { "source": "/", "destination": "/api/sunrise" }
   ]
 }
