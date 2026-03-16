@@ -1,0 +1,102 @@
+/* ============================================================
+   BUTTON COMPONENT
+   Classes:
+     .btn                   — base (always required)
+     .btn-primary           — primary type
+     .btn-secondary         — secondary type
+     .btn-tertiary          — tertiary type (no border)
+     .btn-md                — medium size
+     .btn-sm                — small size
+
+   Usage:
+     <button class="btn btn-primary btn-md">Label</button>
+     <button class="btn btn-secondary btn-sm">Label</button>
+   ============================================================ */
+
+/* ── Base ───────────────────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: none;
+  cursor: pointer;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 600;
+  line-height: normal;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+  box-sizing: border-box;
+}
+
+/* ── Primary ────────────────────────────────────────────── */
+.btn.btn-primary {
+  background: #282E37;
+  color: #ffffff;
+}
+.btn.btn-primary:hover {
+  background: #464E53;
+}
+
+/* ── Secondary ──────────────────────────────────────────── */
+.btn.btn-secondary {
+  background: transparent;
+  color: #282E37;
+  border: 1px solid #A0A2A5;
+}
+.btn.btn-secondary:hover {
+  background: #F3F3F3;
+}
+
+/* ── Tertiary ──────────────────────────────────────────── */
+.btn.btn-tertiary {
+  background: transparent;
+  color: #282E37;
+  border: 1px solid transparent;
+}
+.btn.btn-tertiary:hover {
+  background: #F3F3F3;
+}
+
+/* ── Medium ─────────────────────────────────────────────── */
+.btn.btn-md {
+  padding: 8px 18px;
+  border-radius: 12px;
+  font-size: 16px;
+}
+
+/* ── Small ──────────────────────────────────────────────── */
+.btn.btn-sm {
+  padding: 8px 12px;
+  border-radius: 10px;
+  font-size: 14px;
+}
+
+/* ── Icon visibility ───────────────────────────────────── */
+.btn.btn-icon-hidden img {
+  display: none;
+}
+
+/* ── Icon padding adjustments ─────────────────────────── */
+/* Medium: reduce by 4px per icon side */
+.btn.btn-md:has(img:first-child)  { padding-left: 14px; }
+.btn.btn-md:has(img:last-child)   { padding-right: 14px; }
+
+/* Small: reduce by 2px per icon side */
+.btn.btn-sm:has(img:first-child)  { padding-left: 10px; }
+.btn.btn-sm:has(img:last-child)   { padding-right: 10px; }
+
+/* ── Disabled ───────────────────────────────────────────── */
+.btn:disabled {
+  cursor: not-allowed;
+}
+.btn.btn-primary:disabled {
+  background: rgba(40, 46, 55, 0.30);
+}
+.btn.btn-secondary:disabled {
+  opacity: 0.5;
+}
+.btn.btn-tertiary:disabled {
+  opacity: 0.5;
+}
