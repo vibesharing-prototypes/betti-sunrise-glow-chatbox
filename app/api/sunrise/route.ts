@@ -17,7 +17,6 @@ export async function GET() {
 
   let result = html;
 
-  // Inline CSS (raw.githubusercontent serves text/plain, browsers ignore it)
   result = result.replace(
     /<link[^>]*href=\"Components\/buttons\.css\"[^>]*>/,
     '<style>\n' + buttonsCss + '\n</style>'
@@ -31,7 +30,6 @@ export async function GET() {
     '<style>\n' + pillsCss + '\n</style>'
   );
 
-  // Rewrite icon src to absolute GitHub raw URLs
   result = result.replace(/src=\"Icons\//g, 'src=\"' + BASE + 'Icons/');
 
   return new NextResponse(result, {
