@@ -8,7 +8,6 @@ async function fetchText(path: string) {
 }
 
 export async function GET() {
-  // Fetch HTML and all linked CSS files in parallel
   const [html, buttonsCss, chatGlowCss, pillsCss] = await Promise.all([
     fetchText('Sunrise-glow.html'),
     fetchText('Components/buttons.css'),
@@ -16,7 +15,6 @@ export async function GET() {
     fetchText('Components/pills.css'),
   ]);
 
-  // Replace <link> tags with inline <style> blocks
   let result = html;
   result = result.replace(
     /<link[^>]*href="Components\/buttons\.css"[^>]*>/,
@@ -27,16 +25,10 @@ export async function GET() {
     `<style>\n${chatGlowCss}\n</style>`
   );
   result = result.replace(
-    /<link[^>]*href="Components\/pills\.css"[^>]*href="Components\/pills\.css"[^>]*>/,
-    `<style>\n${pillsCss}\n</style>`
-  );
-  // pills.css uses a different pattern: href then rel
-  result = result.replace(
     /<link[^>]*href="Components\/pills\.css"[^>]*>/,
     `<style>\n${pillsCss}\n</style>`
   );
 
-  // Rewrite icon src paths to raw GitHub URLs
   result = result.replace(/src="Icons\//g, `src="${BASE}Icons/`);
 
   return new NextResponse(result, {
