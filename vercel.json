@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    { "source": "/", "destination": "/Sunrise-glow.html" }
+  ],
+  "redirects": [
+    { "source": "/", "destination": "/Sunrise-glow.html", "permanent": false }
+  ]
+}
